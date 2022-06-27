@@ -1,0 +1,128 @@
+@use './css/variables' as *;
+@use './css/shadow';
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300,400;500;700;900&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Red Hat Display', sans-serif;
+  font-weight: 400;
+
+  background: $bg-body;
+  background-image: url('./img/pattern-background-desktop.svg');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  .card {
+    background: $bg-card;
+    max-width: 400px;
+    overflow: hidden;
+    border-radius: $rad;
+    text-align: center;
+    box-shadow: shadow.f();
+
+    .hero {
+      height: 200px;
+      background-image: url('./img/hero.svg');
+      background-repeat: no-repeat;
+      background-position: top;
+      background-size: cover;
+    }
+
+    .sub-hero {
+      padding: var(--pad);
+
+      > h1 {
+        color: $text-primary;
+        margin-bottom: var(--mb-1);
+        font-weight: 400;
+      }
+
+      > p {
+        color: $text-secondary;
+        margin-bottom: var(--mb-2);
+        line-height: 1.6;
+      }
+
+      .row {
+        background: $bg-accent;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        border-radius: $rad-sm;
+        line-height: 1.5;
+
+        > :first-child {
+          // background: red;
+          position: relative;
+          padding-left: 4rem;
+
+          &::before {
+            content: url('./img/icon.svg');
+            // transform: scale(1);
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+
+          .price {
+            color: $text-secondary;
+          }
+        }
+        > a {
+          // background: blue;
+          color: $text-link;
+        }
+
+        margin-bottom: var(--mb-2);
+      }
+
+      .button {
+        padding: 1rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &.primary {
+          background: #382ae1;
+          color: white;
+          border-radius: $rad-sm;
+
+          $v-offset: 25px;
+          $blur: 50p;
+          box-shadow: shadow.f($v-offset, $blur);
+
+          &:hover {
+            transform: scale(1.01);
+            box-shadow: shadow.f-hover($v-offset, $blur);
+          }
+
+          margin-bottom: var(--mb-0);
+        }
+
+        &.secondary {
+          background: transparent;
+          color: $text-secondary;
+
+          &:hover {
+            transform: scale(1.01);
+            color: black;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+$bg-body: #e0e8ff;
+$bg-card: #ffffff;
+$bg-accent: #f7f9ff;
+
+$text-primary: #1f2e55;
+$text-secondary: #717fa6;
+$text-link: #382ae1;
+
+$rad: 20px;
+$rad-sm: 10px;
+
+$pad-1: 50px;
+
+$break: 450px;
+
+@media (max-width: #{$break}) {
+  :root {
+    --mb-0: 0.5rem;
+    --mb-1: 0.9rem;
+    --mb-2: 1.4rem;
+    --pad: 35px;
+  }
+}
+@media (min-width: #{$break}) {
+  :root {
+    --mb-0: 0.6rem;
+    --mb-1: 1rem;
+    --mb-2: 1.5rem;
+    --pad: 50px;
+  }
+}
